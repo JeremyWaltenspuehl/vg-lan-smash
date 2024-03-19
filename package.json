@@ -39,6 +39,12 @@
         "height": 1080,
         "singleInstance": false
       }
+    ],
+    "mount": [
+      {
+        "directory": "assets",
+        "endpoint": "assets"
+      }
     ]
   },
   "browserslist": {

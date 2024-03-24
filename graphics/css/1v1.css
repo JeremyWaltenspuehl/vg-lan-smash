@@ -1,0 +1,104 @@
+body{
+    background-image: url(../assets/SSBU\ Game\ HUD\ Overlay\ Template.png);
+    width: 1920px;
+    height: 1080px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Azonix', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+#dv_p1{
+    position: absolute;
+    top: 1000px;
+    left: 545px;
+    display: flex;
+    align-items: center;
+    height: 33px;
+}
+.playername{
+    font-size: 20px;
+}
+#dv_p2{
+    position: absolute;
+    top: 1000px;
+    left: 1285px;
+    display: flex;
+    align-items: center;
+    height: 33px;
+}
+#dv_p1score{
+    position: absolute;
+    top: 1002px;
+    left: 362px;
+    width: 60px;
+    height: 25px;
+    justify-content: space-around;
+    align-items: center;
+}
+#dv_p2score{
+    position: absolute;
+    top: 1002px;
+    left: 1100px;
+    width: 60px;
+    height: 25px;
+    justify-content: space-around;
+    align-items: center;
+}
+.point{
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    border-radius: 100%;
+    display: none;
+}
+
+.scorebox{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+}
+
+#header{
+    height: 75px;
+    width: 300px;
+    background: radial-gradient(circle at 32% 50%, rgba(0,0,0,1) 0%, rgba(88,14,19,1) 25%, rgba(0,0,0,1) 25%, rgba(88,14,19,1) 50%, rgba(0,0,0,1) 50%, rgba(88,14,19,1) 75%, rgba(0,0,0,1) 75%,rgba(88,14,19,1) 100%);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#round{
+    position: absolute;
+    right: 0;
+    top: 102.5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    height: 60px;
+    width: 310px;
+    background-color: #a31922;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.playercam{
+    aspect-ratio: 16/9;
+    width: 300px;
+    border: 5px solid;
+    border-image: linear-gradient(130deg, rgba(0,0,0,1) 15%, rgba(88,14,19,1) 75%) 1;
+    background-color: #0e0;
+    position: absolute;
+}
+#p1_cam{
+    left: 10px;
+    bottom: 0;
+}
+#p2_cam{
+    right: 10px;
+    bottom: 0;
+}

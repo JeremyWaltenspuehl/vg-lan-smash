@@ -38,6 +38,18 @@
         "width": 1920,
         "height": 1080,
         "singleInstance": false
+      },
+      {
+        "file": "1v1_nocam.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "big_cams.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
       }
     ],
     "mount": [

@@ -1,62 +1,45 @@
-const { app, globalShortcut, BrowserWindow } = require('electron');
-const path = require('path');
-const { dialog } = require('electron');
+const best_of = nodecg.Replicant('best_of');
+const playerinfo = nodecg.Replicant('playerinfo');
+const round = nodecg.Replicant('round');
+NodeCG.waitForReplicants(best_of, playerinfo, round).then(() =>{
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
-  app.quit();
+
+playerinfo.on('change', (value) => {
+  document.getElementById('spn_score_p1').innerHTML = value.p1.score
+  document.getElementById('spn_score_p2').innerHTML = value.p2.score
+  document.getElementById('in_p1name').value = value.p1.name
+  document.getElementById('in_p2name').value = value.p2.name
+})
+
+})
+function p1_up_score() {
+  playerinfo.value.p1.score = playerinfo.value.p1.score + 1
 }
+function p1_down_score() {
+  playerinfo.value.p1.score = playerinfo.value.p1.score - 1
+}
+function p2_up_score() {
+  playerinfo.value.p2.score = playerinfo.value.p2.score + 1
+}
+function p2_down_score() {
+  playerinfo.value.p2.score = playerinfo.value.p2.score - 1
+}
+function reset_score() {
+  playerinfo.value.p1.score = 0
+  playerinfo.value.p2.score = 0
+}
+function update_playernames(){
+  playerinfo.value.p1.name = document.getElementById('in_p1name').value
+  playerinfo.value.p2.name = document.getElementById('in_p2name').value
+}
+function update_round() {
+  round.value = document.getElementById('sel_round').value;
+}
+function swap_players() {
+  let temp_playerinfo = playerinfo.value
 
-const createWindow = () => {
-  // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 300,
-    
-    minWidth: 1000,
-    minHeight: 358,
-    maxWidth: 1000,
-    maxHeight: 520,
-
-    webPreferences: {
-      nodeIntegration: true,
-    }
-  });
-
-  // we dont like menus
-  mainWindow.removeMenu();
-
-  /* mainWindow.webContents.openDevTools(); */
-
-  // load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
-};
-
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
-
-// Quit when all windows are closed.
-app.on('window-all-closed', () => {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
-app.on('activate', () => {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
-
-var options  = {
-  buttons: ["Yes","No","Cancel"],
-  message: "Clear all settings?"
-};
-
-exports.popup = () => dialog.showMessageBoxSync(options);
+  playerinfo.value.p1.score = temp_playerinfo.p2.score
+  playerinfo.value.p2.score = temp_playerinfo.p1.score
+  playerinfo.value.p1.name = temp_playerinfo.p2.name
+  playerinfo.value.p2.name = temp_playerinfo.p1.name
+}

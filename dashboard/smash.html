@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Ultimate Stream Tool</title>
-    <link rel="stylesheet" href="css/smash.css">
 
-  </head>
-  
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/smash.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+</head>
+
+<body>
+  <div class="playerstats">
+    <div>
+      <p>Player Left</p>
+      <input type="text" name="" id="in_p1name">
+    </div>
+    <div class="menu2">
+      <select name="round" id="sel_round">
+        <option value="Pools">Pools</option>
+        <option value="Winners Quarter">Winners Quarter</option>
+        <option value="Winners Semi">Winners Semi</option>
+        <option value="Winners Final">Winners Final</option>
+        <option value="Losers Round 1">Losers Round 1</option>
+        <option value="Losers Round 2">Losers Round 2</option>
+        <option value="Losers Round 3">Losers Round 3</option>
+        <option value="Losers Quarter">Losers Quarter</option>
+        <option value="Losers Semi">Losers Semi</option>
+        <option value="Losers Final">Losers Final</option>
+        <option value="Grand Final">Grand Final</option>
+        <option value="Grand Final Reset">Grand Final Reset</option>
+      </select>
+      <button onclick="update_round()">Update Round</button>
+      <button onclick="update_playernames()">Update Playernames</button>
+    </div>
+    <div>
+      <p>Player Right</p>
+      <input type="text" name="" id="in_p2name">
+    </div>
+    <span id="spn_score_p1">0</span>
+    <div class="menu">
+      <button onclick="p1_up_score()"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+      <button onclick="swap_players()"><i class="fa fa-arrows-h" aria-hidden="true"></i></button>
+      <button onclick="p2_up_score()"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+      <button onclick="p1_down_score()"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+      <button onclick="reset_score()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+      <button onclick="p2_down_score()"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+    </div>
+    <span id="spn_score_p2">0</span>
+  </div>
+
+  <script src="js/smash.js"></script>
+</body>
 
 </html>

@@ -1,0 +1,80 @@
+@property --grad_first{
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 25%;
+}
+
+@property --grad_second{
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 50%;
+}
+@property --grad_third{
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 75%;
+}
+
+@property --grad_height{
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+@keyframes background_anim {
+    0%      {
+        --grad_first: 25%;
+        --grad_second: 50%;
+        --grad_third: 75%;
+        --grad_height: 0%;
+    }
+    50%     {
+        --grad_first: 28%;
+        --grad_second: 47%;
+        --grad_third: 60%;
+        --grad_height: 5%;
+    }
+    100%    {
+        --grad_first: 25%;
+        --grad_second: 50%;
+        --grad_third: 75%;
+        --grad_height: 0%;
+    }
+}
+
+body{
+    background: radial-gradient(circle at 0% var(--grad_height), rgba(0,0,0,1) 0%, rgba(88,14,19,1) var(--grad_first), rgba(0,0,0,1) var(--grad_first), rgba(88,14,19,1) var(--grad_second), rgba(0,0,0,1) var(--grad_second), rgba(88,14,19,1) var(--grad_third), rgba(0,0,0,1) var(--grad_third),rgba(88,14,19,1) 100%);
+    width: 1920px;
+    height: 1080px;
+    background-repeat: no-repeat;
+    animation-name: background_anim;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    display: grid;
+    justify-items: center;
+    font-family: 'Azonix', sans-serif;
+    color: white;
+}
+
+body{
+    width: 1920px;
+    height: 1080px;
+}
+
+.playercam{
+    aspect-ratio: 16/9;
+    width: 900px;
+    border: 5px solid;
+    border-image: linear-gradient(130deg, rgba(0,0,0,1) 15%, rgba(88,14,19,1) 75%) 1;
+    background-color: #0e0;
+    position: absolute;
+}
+
+#p1_cam{
+    top: 40px;
+    left: 40px;
+}
+#p2_cam{
+    right: 40px;
+    bottom: 40px;
+}

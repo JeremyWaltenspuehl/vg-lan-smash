@@ -43,8 +43,10 @@
       <button onclick="swap_players()"><i class="fa fa-arrows-h" aria-hidden="true"></i></button>
       <button onclick="p2_up_score()"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
       <button onclick="p1_down_score()"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
-      <button onclick="reset_score()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+      <button id="reset_button" onclick="reset_score()" disabled><i class="fa fa-refresh" aria-hidden="true"></i></button>
       <button onclick="p2_down_score()"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+      <span></span>
+      <span><input type="checkbox" name="sure" id="chk_sure"></span>
     </div>
     <span id="spn_score_p2">0</span>
   </div>

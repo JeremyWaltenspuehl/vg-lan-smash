@@ -50,6 +50,12 @@
         "width": 1920,
         "height": 1080,
         "singleInstance": false
+      },
+      {
+        "file": "crewbattle.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
       }
     ],
     "mount": [
